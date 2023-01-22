@@ -6,4 +6,4 @@
 
 ## Dokumentaatio
 
-[Määrittelydokumentti](/dokumentaadio/maarittely.md)
+[Määrittelydokumentti](/dokumentaatio/maarittely.md)
