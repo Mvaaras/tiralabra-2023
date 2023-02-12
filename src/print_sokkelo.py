@@ -1,5 +1,3 @@
-from luo_sokkelo import luo_sokkelo
-
 def print_sokkelo(sokkelo):
     korkeus = 1
     paikka = 1
@@ -24,12 +22,8 @@ def print_sokkelo(sokkelo):
 
 status = {
     2:",",
-    1:"."
+    1:".",
+    3:"-"
 }
 
-iso_sokkelo = [0,0,1,1,1,0,
-1,1,1,0,0,0,
-1,0,0,0,0,1,
-0,0,0,0,1,0]
-luotu_sokkelo = luo_sokkelo(iso_sokkelo,6)
-print_sokkelo(luotu_sokkelo[0])
+    

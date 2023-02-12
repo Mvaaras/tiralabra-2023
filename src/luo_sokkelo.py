@@ -1,4 +1,5 @@
 from resource.node import Solmu
+from resource.sokkelo import Sokkelo
 
 def luo_sokkelo(sokkelo, leveys=1):
     #sokkelo on lista aktiivisia ja epäaktiivisia suunniteltuja solmuja sokkelolle
@@ -9,7 +10,6 @@ def luo_sokkelo(sokkelo, leveys=1):
             x = selvita_x(i, leveys)
             y = selvita_y(i+1,leveys,x)
             solmut.append(Solmu(x,y,i+1))
-            print((x,y))
             if x > 1:
                 if sokkelo[i-1]:
                     linkit.append((i,i+1))
@@ -17,7 +17,7 @@ def luo_sokkelo(sokkelo, leveys=1):
                 if sokkelo[i-leveys]:
                     linkit.append((i-leveys+1,i+1))
 
-    return (solmut, linkit)
+    return Sokkelo(solmut, linkit)
 
 
 def selvita_x(i, leveys):
