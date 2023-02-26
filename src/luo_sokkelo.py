@@ -25,3 +25,9 @@ def selvita_x(i, leveys):
 
 def selvita_y(i, leveys,x):
     return ((i - x) / leveys) +1
+
+testisokkelo = luo_sokkelo([1,1,1,1,1,1,
+                1,1,1,1,1,1,
+                1,1,1,1,1,1,
+                1,1,1,1,0,0,
+                1,1,1,1,0,1],6)

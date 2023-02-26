@@ -3,9 +3,6 @@ from luo_sokkelo import luo_sokkelo
 
 class TestLuoSokkelo(unittest.TestCase):
     def setUp(self):
-        sokkelo = [0,1,0,
-        1,1,1,
-        0,1,1]
         iso_sokkelo = [0,0,1,1,1,0,
         1,1,1,0,0,0,
         1,0,0,0,0,1,
