@@ -1,5 +1,7 @@
 # Määrittelydokumentti
 
+Huom: Kyseessä on jatkettu projekti, koska ensimmäinen suorituskerta keskeytyi.
+
 _Pikainfo: Reitinhaku, Python, Suomi, TKT_
 
 ## Teknisen toteutuksen tiedot
