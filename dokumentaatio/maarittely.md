@@ -1,6 +1,6 @@
 # Määrittelydokumentti
 
-Huom: Kyseessä on jatkettu projekti, koska ensimmäinen suorituskerta keskeytyi.
+Huom: Kyseessä on jatkettu projekti, koska ensimmäinen suorituskerta keskeytyi. Toisella suorituskerralla tarkoitukseni on toteuttaa nimenomaan ne projektin osat joka ekalla kerralla jäivät kesken, eli Dijkstra oikeanlaiseksi ja IDA* reitinhakualgoritmin toteutus.
 
 _Pikainfo: Reitinhaku, Python, Suomi, TKT_
 
