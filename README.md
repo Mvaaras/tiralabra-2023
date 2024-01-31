@@ -3,6 +3,7 @@
 ## Viikkoraportit
 
 [Viikko 1](/dokumentaatio/raportit/viikko1.md)
+[Viikko 2](/dokumentaatio/raportit/viikko2.md)
 
 ## Vanhat viikkoraportit
 
