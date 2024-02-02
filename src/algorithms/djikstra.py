@@ -1,5 +1,4 @@
 from math import sqrt
-from print_sokkelo import print_sokkelo
 from resource.keko import Keko
 ISO_LUKU = 1000000000000
 
