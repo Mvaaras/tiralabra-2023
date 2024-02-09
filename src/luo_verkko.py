@@ -8,7 +8,7 @@ def luo_verkko(koko,tiiviys = 10):
     
     solmut[1].discard(0)
     solmut[koko].discard(koko+1)
-
+    solmut[0] = koko
 
     for i in range (0, tiiviys):
         #linkkien määrä random, sillä mahdollista päällekkäisyyttä esiintyy

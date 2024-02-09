@@ -3,47 +3,34 @@ from resource.keko import Keko
 ISO_LUKU = 1000000000000
 
 class Dijkstra:
-    def __init__(self, sokkelo, alku, loppu):
+    def __init__(self, solmut, alku, loppu):
         self.loppu = loppu
         self.alku = alku
         self.edellinen = {}
         self.vieraillut = []
-        self.sokkelo = sokkelo
+        self.solmut = solmut
         self.keko = Keko()
 
     def dijkstra(self):
-        for solmu in self.sokkelo.solmut:
-            self.edellinen[solmu.id] = None
-            self.keko.lisaa(solmu, ISO_LUKU)
-        self.keko.muuta_pituus(self.alku.id,0)
+        for solmu_id in range (1,self.solmut[0]):
+            self.edellinen[solmu_id] = None
+            self.keko.lisaa(solmu_id, ISO_LUKU)
+        self.keko.muuta_pituus(self.alku,0)
         while not self.keko.on_tyhja():
             tutki = self.keko.palauta_pienin()
-            print_sokkelo(self.sokkelo.solmut)
             print("")
             if tutki == self.loppu:
                 break
-            for linkki in self.sokkelo.linkit:
-                kohde = self.relevantit_linkit(tutki, linkki)
+            kohteet = self.solmut[tutki]
+            for kohde in kohteet:
                 if not kohde == -1:
                     if self.keko.etaisyydet[kohde] > self.keko.etaisyydet[tutki.id] +1:
                         self.keko.muuta_pituus(kohde,self.keko.etaisyydet[tutki.id] +1)
                         self.edellinen[kohde] = tutki
             
-            print_sokkelo(self.sokkelo.solmut)
             print("")
             tutki.tila = 3
         return self.palauta_reitti()
-
-
-    """def etaisyys_linnuntie(self, piste):
-        return sqrt((piste.x - self.loppu.x)**2 + (piste.y - self.loppu.y)**2)"""
-
-    def relevantit_linkit(self,tutki,linkki):
-        if linkki[0] == tutki.id:
-            return linkki[1]
-        elif linkki[1] == tutki.id:
-            return linkki[0]
-        return -1
 
     def palauta_reitti(self):
         reitti = [self.loppu.id]
