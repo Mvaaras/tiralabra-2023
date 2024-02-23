@@ -5,9 +5,8 @@ class Keko:
         self.id = {}
 
     def lisaa(self, solmu, etaisyys):
-        self.sisalto.append(solmu.id)
-        self.etaisyydet[solmu.id] = etaisyys
-        self.id[solmu.id] = solmu
+        self.sisalto.append(solmu)
+        self.etaisyydet[solmu] = etaisyys
         self.tarkista_ylos(len(self.sisalto)-1)
     
     def tarkista_ylos(self, child):
@@ -28,13 +27,13 @@ class Keko:
 
     def muuta_pituus(self, solmu, pituus):
         self.sisalto.remove(solmu)
-        self.lisaa(self.id[solmu], pituus)
+        self.lisaa(solmu, pituus)
 
     def palauta_pienin(self):
         pienin = self.sisalto[0]
         self.sisalto.remove(pienin)
         self.tarkista_alas(0)
-        return self.id[pienin]
+        return pienin
 
     
     def tarkista_alas(self, parent):

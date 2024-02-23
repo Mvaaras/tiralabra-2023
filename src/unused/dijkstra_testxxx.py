@@ -1,10 +1,10 @@
 import unittest
-from luo_sokkelo import testisokkelo
+from luo_verkko import testiverkko
 from algorithms.djikstra import Dijkstra
 
 class TestDijkstra(unittest.TestCase):
     def setUp(self):
-        self.dijkstra = Dijkstra(testisokkelo, testisokkelo.solmut[0],testisokkelo.solmut[17])
+        self.dijkstra = Dijkstra(testiverkko, 4, 9)
         self.reitti = self.dijkstra.dijkstra()
 
     def test_loytaa_lyhimman_reitin_pituuden(self):
@@ -17,14 +17,6 @@ class TestDijkstra(unittest.TestCase):
         self.assertEqual(str(self.dijkstra),"lyhyin löydetty matka: 7\nreitti: [1, 2, 3, 4, 5, 6, 12, 18]")
 
     def test_reitti_loytyy_alhaalta_ylos(self):
-        self.dijkstra.vaihda_alku(testisokkelo.solmut[17])
-        self.dijkstra.vaihda_loppu(testisokkelo.solmut[0])
+        self.dijkstra.vaihda_alku(9)
+        self.dijkstra.vaihda_loppu(4)
         self.assertEqual(self.dijkstra.dijkstra(),[18,17,16,15,14,13,7,1])
-
-    def test_tyhja_reitti_palauttaa_tyhjana(self):
-        self.dijkstra.vaihda_loppu(testisokkelo.solmut[26])
-        self.assertEqual(self.dijkstra.dijkstra(),[])
-
-    def test_tyhja_reitti_kertoo_ettei_loytynyt(self):
-        self.dijkstra.vaihda_loppu(testisokkelo.solmut[26])
-        self.assertEqual(str(self.dijkstra),"reittiä alun ja lopun välillä ei löydetty")

@@ -11,8 +11,8 @@ class TestLuoVerkko(unittest.TestCase):
         self.assertEqual(type(self.verkko),dict)
     
     def test_verkko_on_linkitetty_oikein(self):
-        self.assertEqual(self.verkko[10],{9})
-        self.assertEqual(self.verkko[1],{2})
+        self.assertEqual(self.verkko[10],{(9,2)})
+        self.assertEqual(self.verkko[1],{(2,2)})
     
     def test_bonus_linkki_verkossa(self):
-        self.assertEqual(self.verkko[3],{2,4,5})
+        self.assertEqual(self.verkko[2],{(1,2),(3,2),(9,2)})

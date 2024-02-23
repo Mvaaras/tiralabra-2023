@@ -1,4 +1,4 @@
-from math import sqrt
+import math
 from resource.keko import Keko
 ISO_LUKU = 1000000000000
 
@@ -7,14 +7,14 @@ class Dijkstra:
         self.loppu = loppu
         self.alku = alku
         self.edellinen = {}
-        self.vieraillut = []
+        self.vieraillut = set()
         self.solmut = solmut
         self.keko = Keko()
 
     def dijkstra(self):
         for solmu_id in range (1,self.solmut[0]):
             self.edellinen[solmu_id] = None
-            self.keko.lisaa(solmu_id, ISO_LUKU)
+            self.keko.lisaa(solmu_id)
         self.keko.muuta_pituus(self.alku,0)
         while not self.keko.on_tyhja():
             tutki = self.keko.palauta_pienin()
@@ -23,30 +23,28 @@ class Dijkstra:
                 break
             kohteet = self.solmut[tutki]
             for kohde in kohteet:
-                if not kohde == -1:
-                    if self.keko.etaisyydet[kohde] > self.keko.etaisyydet[tutki.id] +1:
-                        self.keko.muuta_pituus(kohde,self.keko.etaisyydet[tutki.id] +1)
-                        self.edellinen[kohde] = tutki
+                if self.keko.etaisyydet[kohde[0]] > self.keko.etaisyydet[tutki] +kohde[1]:
+                    self.keko.muuta_pituus(kohde[0],self.keko.etaisyydet[tutki] +kohde[1])
+                    self.edellinen[kohde] = tutki
             
             print("")
-            tutki.tila = 3
         return self.palauta_reitti()
 
     def palauta_reitti(self):
-        reitti = [self.loppu.id]
-        sijainti = self.edellinen[self.loppu.id]
+        reitti = [self.loppu]
+        sijainti = self.edellinen[self.loppu]
         if sijainti == None:
             return []
         while sijainti:
-            reitti.append(sijainti.id)
-            sijainti = self.edellinen[sijainti.id]
+            reitti.append(sijainti)
+            sijainti = self.edellinen[sijainti]
         reitti.reverse()
         return reitti
 
     def lyhin_matka(self):
         """lyhin matka sen jälkeen kun reitti on löydetty"""
-        matka = self.keko.etaisyydet[self.loppu.id]
-        if self.keko.etaisyydet[self.loppu.id] == ISO_LUKU:
+        matka = self.keko.etaisyydet[self.loppu]
+        if self.keko.etaisyydet[self.loppu] == ISO_LUKU:
             return -1
         return matka
 
